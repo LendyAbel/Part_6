@@ -26,7 +26,7 @@ const App = () => {
   const handleVote = anecdote => {
     const updatedAnecdote = { ...anecdote, votes: anecdote.votes + 1 }
     voteMutation.mutate(updatedAnecdote)
-    notificationDispatch({ type: 'voted', payload: updatedAnecdote })
+    notificationDispatch({ type: 'voted', payload: updatedAnecdote.content })
     setTimeout(() => {
       notificationDispatch({ type: 'clear' })
     }, 5000)
